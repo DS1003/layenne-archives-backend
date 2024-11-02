@@ -19,11 +19,11 @@ model User {
   email    String    @unique
   password String
   photo    String?   // URL de la photo, optionnelle
+  role     String    @default("user") // Champ de rôle pour identifier les administrateurs et les utilisateurs réguliers
   posts    Post[]
   likes    Like[]    // Ajouter les likes pour l'utilisateur
   comments Comment[] // Ajouter les commentaires pour l'utilisateur
 }
-
 
 model File {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
